@@ -1,0 +1,131 @@
+cubes:
+  - name: product_variant
+    sql_table: indira.product_variant
+
+    joins:
+      - name: product
+        sql: "{CUBE}.product_id = {product}.id"
+        relationship: many_to_one
+
+    dimensions:
+      - name: id
+        sql: id
+        type: number
+        primary_key: true
+
+      - name: barcode
+        sql: barcode
+        type: string
+
+      - name: compare_at_price
+        sql: compare_at_price
+        type: string
+
+      - name: fulfillment_service
+        sql: fulfillment_service
+        type: string
+
+      - name: grams
+        sql: grams
+        type: string
+
+      - name: inventory_management
+        sql: inventory_management
+        type: string
+
+      - name: inventory_policy
+        sql: inventory_policy
+        type: string
+
+      - name: option_1
+        sql: option_1
+        type: string
+
+      - name: option_2
+        sql: option_2
+        type: string
+
+      - name: option_3
+        sql: option_3
+        type: string
+
+      - name: presentment_prices
+        sql: presentment_prices
+        type: string
+
+      - name: price
+        sql: price
+        type: string
+
+      - name: requires_shipping
+        sql: requires_shipping
+        type: string
+
+      - name: sku
+        sql: sku
+        type: string
+
+      - name: tax_code
+        sql: tax_code
+        type: string
+
+      - name: taxable
+        sql: taxable
+        type: string
+
+      - name: title
+        sql: title
+        type: string
+
+      - name: weight
+        sql: weight
+        type: string
+
+      - name: weight_unit
+        sql: weight_unit
+        type: string
+
+      - name: created_at
+        sql: created_at
+        type: time
+
+      - name: updated_at
+        sql: updated_at
+        type: time
+
+    measures:
+      - name: count
+        type: count
+
+      - name: product_id
+        sql: product_id
+        type: sum
+
+      - name: image_id
+        sql: image_id
+        type: sum
+
+      - name: inventory_item_id
+        sql: inventory_item_id
+        type: sum
+
+      - name: inventory_quantity
+        sql: inventory_quantity
+        type: sum
+
+      - name: inventory_quantity_adjustment
+        sql: inventory_quantity_adjustment
+        type: sum
+
+      - name: old_inventory_quantity
+        sql: old_inventory_quantity
+        type: sum
+
+      - name: position
+        sql: position
+        type: sum
+
+    pre_aggregations:
+      # Pre-aggregation definitions go here.
+      # Learn more in the documentation: https://cube.dev/docs/caching/pre-aggregations/getting-started
+

@@ -1,0 +1,131 @@
+cubes:
+  - name: order_line
+    sql_table: indira.order_line
+
+    joins:
+      - name: order
+        sql: "{CUBE}.order_id = {order}.id"
+        relationship: many_to_one
+
+      - name: product
+        sql: "{CUBE}.product_id = {product}.id"
+        relationship: many_to_one
+
+    dimensions:
+      - name: id
+        sql: id
+        type: number
+        primary_key: true
+
+      - name: fulfillment_status
+        sql: fulfillment_status
+        type: string
+
+      - name: gift_card
+        sql: gift_card
+        type: string
+
+      - name: name
+        sql: name
+        type: string
+
+      - name: pre_tax_price
+        sql: pre_tax_price
+        type: string
+
+      - name: pre_tax_price_set
+        sql: pre_tax_price_set
+        type: string
+
+      - name: price
+        sql: price
+        type: string
+
+      - name: price_set
+        sql: price_set
+        type: string
+
+      - name: product_exists
+        sql: product_exists
+        type: string
+
+      - name: properties
+        sql: properties
+        type: string
+
+      - name: requires_shipping
+        sql: requires_shipping
+        type: string
+
+      - name: sku
+        sql: sku
+        type: string
+
+      - name: tax_code
+        sql: tax_code
+        type: string
+
+      - name: taxable
+        sql: taxable
+        type: string
+
+      - name: title
+        sql: title
+        type: string
+
+      - name: total_discount
+        sql: total_discount
+        type: string
+
+      - name: total_discount_set
+        sql: total_discount_set
+        type: string
+
+      - name: variant_inventory_management
+        sql: variant_inventory_management
+        type: string
+
+      - name: variant_title
+        sql: variant_title
+        type: string
+
+      - name: vendor
+        sql: vendor
+        type: string
+
+    measures:
+      - name: count
+        type: count
+
+      - name: order_id
+        sql: order_id
+        type: sum
+
+      - name: fulfillable_quantity
+        sql: fulfillable_quantity
+        type: sum
+
+      - name: grams
+        sql: grams
+        type: sum
+
+      - name: index
+        sql: index
+        type: sum
+
+      - name: product_id
+        sql: product_id
+        type: sum
+
+      - name: quantity
+        sql: quantity
+        type: sum
+
+      - name: variant_id
+        sql: variant_id
+        type: sum
+
+    pre_aggregations:
+      # Pre-aggregation definitions go here.
+      # Learn more in the documentation: https://cube.dev/docs/caching/pre-aggregations/getting-started
+

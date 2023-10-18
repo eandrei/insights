@@ -1,0 +1,92 @@
+cubes:
+  - name: customer
+    sql_table: indira.customer
+
+    joins: []
+
+    dimensions:
+      - name: id
+        sql: id
+        type: number
+        primary_key: true
+
+      - name: currency
+        sql: currency
+        type: string
+
+      - name: email
+        sql: email
+        type: string
+
+      - name: email_marketing_consent_opt_in_level
+        sql: email_marketing_consent_opt_in_level
+        type: string
+
+      - name: email_marketing_consent_state
+        sql: email_marketing_consent_state
+        type: string
+
+      - name: first_name
+        sql: first_name
+        type: string
+
+      - name: last_name
+        sql: last_name
+        type: string
+
+      - name: metafield
+        sql: metafield
+        type: string
+
+      - name: multipass_identifier
+        sql: multipass_identifier
+        type: string
+
+      - name: note
+        sql: note
+        type: string
+
+      - name: phone
+        sql: phone
+        type: string
+
+      - name: state
+        sql: state
+        type: string
+
+      - name: tax_exempt
+        sql: tax_exempt
+        type: string
+
+      - name: total_spent
+        sql: total_spent
+        type: string
+
+      - name: verified_email
+        sql: verified_email
+        type: string
+
+      - name: created_at
+        sql: created_at
+        type: time
+
+      - name: email_marketing_consent_consent_updated_at
+        sql: email_marketing_consent_consent_updated_at
+        type: time
+
+      - name: updated_at
+        sql: updated_at
+        type: time
+
+    measures:
+      - name: count
+        type: count
+
+      - name: orders_count
+        sql: orders_count
+        type: sum
+
+    pre_aggregations:
+      # Pre-aggregation definitions go here.
+      # Learn more in the documentation: https://cube.dev/docs/caching/pre-aggregations/getting-started
+

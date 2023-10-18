@@ -1,0 +1,59 @@
+cubes:
+  - name: order_line_refund
+    sql_table: indira.order_line_refund
+
+    joins:
+      - name: order_line
+        sql: "{CUBE}.order_line_id = {order_line}.id"
+        relationship: many_to_one
+
+    dimensions:
+      - name: id
+        sql: id
+        type: number
+        primary_key: true
+
+      - name: quantity
+        sql: quantity
+        type: string
+
+      - name: restock_type
+        sql: restock_type
+        type: string
+
+      - name: subtotal
+        sql: subtotal
+        type: string
+
+      - name: subtotal_set
+        sql: subtotal_set
+        type: string
+
+      - name: total_tax
+        sql: total_tax
+        type: string
+
+      - name: total_tax_set
+        sql: total_tax_set
+        type: string
+
+    measures:
+      - name: count
+        type: count
+
+      - name: location_id
+        sql: location_id
+        type: sum
+
+      - name: order_line_id
+        sql: order_line_id
+        type: sum
+
+      - name: refund_id
+        sql: refund_id
+        type: sum
+
+    pre_aggregations:
+      # Pre-aggregation definitions go here.
+      # Learn more in the documentation: https://cube.dev/docs/caching/pre-aggregations/getting-started
+

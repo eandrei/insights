@@ -1,0 +1,64 @@
+cubes:
+  - name: product
+    sql_table: indira.product
+
+    joins: []
+
+    dimensions:
+      - name: id
+        sql: id
+        type: number
+        primary_key: true
+
+      - name: body_html
+        sql: body_html
+        type: string
+
+      - name: handle
+        sql: handle
+        type: string
+
+      - name: product_type
+        sql: product_type
+        type: string
+
+      - name: published_scope
+        sql: published_scope
+        type: string
+
+      - name: status
+        sql: status
+        type: string
+
+      - name: template_suffix
+        sql: template_suffix
+        type: string
+
+      - name: title
+        sql: title
+        type: string
+
+      - name: vendor
+        sql: vendor
+        type: string
+
+      - name: created_at
+        sql: created_at
+        type: time
+
+      - name: updated_at
+        sql: updated_at
+        type: time
+
+      - name: published_at
+        sql: published_at
+        type: time
+
+    measures:
+      - name: count
+        type: count
+
+    pre_aggregations:
+      # Pre-aggregation definitions go here.
+      # Learn more in the documentation: https://cube.dev/docs/caching/pre-aggregations/getting-started
+

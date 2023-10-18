@@ -1,0 +1,55 @@
+cubes:
+  - name: order_adjustment
+    sql_table: indira.order_adjustment
+
+    joins:
+      - name: order
+        sql: "{CUBE}.order_id = {order}.id"
+        relationship: many_to_one
+
+    dimensions:
+      - name: id
+        sql: id
+        type: number
+        primary_key: true
+
+      - name: amount
+        sql: amount
+        type: string
+
+      - name: amount_set
+        sql: amount_set
+        type: string
+
+      - name: kind
+        sql: kind
+        type: string
+
+      - name: reason
+        sql: reason
+        type: string
+
+      - name: tax_amount
+        sql: tax_amount
+        type: string
+
+      - name: tax_amount_set
+        sql: tax_amount_set
+        type: string
+
+    measures:
+      - name: count
+        type: count
+
+      - name: order_id
+        sql: order_id
+        type: sum
+
+      - name: refund_id
+        sql: refund_id
+        type: sum
+
+    pre_aggregations:
+      # Pre-aggregation definitions go here.
+      # Learn more in the documentation: https://cube.dev/docs/caching/pre-aggregations/getting-started
+
